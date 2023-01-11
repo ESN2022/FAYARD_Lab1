@@ -61,7 +61,7 @@ https://fpgasoftware.intel.com/eula.
 		(text "export" (rect 213 147 462 304)(font "Arial" (color 0 0 0)))
 		(text "reset" (rect 179 163 388 339)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "reset_n" (rect 213 187 468 384)(font "Arial" (color 0 0 0)))
-		(text " Lab1_sys " (rect 435 208 930 426)(font "Arial" ))
+		(text " system " (rect 445 208 938 426)(font "Arial" ))
 		(line (pt 208 32)(pt 272 32)(line_width 1))
 		(line (pt 272 32)(pt 272 208)(line_width 1))
 		(line (pt 208 208)(pt 272 208)(line_width 1))
