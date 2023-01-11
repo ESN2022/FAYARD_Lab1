@@ -103,6 +103,7 @@
 *.wlf
 **/work/*
 *.ini
+**simulation/modelsim*
 
 # Signal taps
 *.stp
