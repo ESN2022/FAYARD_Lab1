@@ -1,7 +1,10 @@
 #include <system.h>
 #include <altera_avalon_pio_regs.h>
 
-int push_b, slide_b, i = 0, t;
+int push_b, push_b_old = 0, state = 0;
+int slide_b;
+int i = 0;
+int t;
 
 int main(int argc, char *argv[])
 {
@@ -9,7 +12,13 @@ int main(int argc, char *argv[])
 		//Push button state in polling mode
 		push_b = (IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE)) >> 4;				// Take the 5th bit value which corresponds to the push button value
 
-		if (push_b == 0)														// If the push button is pressed
+		if ((push_b == 0) && (push_b_old == 1))
+		{
+			state = 1 - state;
+		}
+		push_b_old = push_b;
+
+		if (state == 1)															// If the push button has been pressed
 		{
 			//Speed determined by the slide buttons in polling mode
 			slide_b = (IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE)) & 0x0F;		// Take the bit 0 to 4
@@ -37,13 +46,13 @@ int main(int argc, char *argv[])
 			   IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE,1<<i);
 			   usleep(t);
 			}
-			for (i=7;i>=0;i--){
+			for (i=7;i>0;i--){
 			   IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE,1<<i);
 			   usleep(t);
 			}
 		}
-		else {
-            IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE,0);
+		else{
+           IOWR_ALTERA_AVALON_PIO_DATA(LEDS_BASE,0);
 		}
 	}
 
