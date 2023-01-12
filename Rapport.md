@@ -7,8 +7,7 @@ Lors de ce premier TP, un chenillard de 8 LEDs à vitesse variable est réalisé
 
 Le système de co-design comprend le softcore Nios II, de la mémoire de type RAM ainsi que 2 PIOs (Parallel I/O) : le premier pour les sorties, c’est-à-dire les LEDs et le second pour les entrées, c’est-à-dire les boutons. Un module UART est rajouté pour le debug. Le système communique par bus Avalon qui est le bus propriétaire d’Intel. Ce dernier est de type maître/esclave. Il est ici utilisé dans le mode « Memory mapped » c’est-à-dire que chaque périphérique est contrôlé en lisant ou en écrivant à ses adresses. L’ensemble de l’architecture est résumé sur la Figure 1. 
 
-<img width="711" alt="arch_system" src="https://user-images.githubusercontent.com/103188608/211804935-cbab432e-6a22-4353-982b-29f87340a068.png">
-
+<img width="635" alt="arch_system" src="https://user-images.githubusercontent.com/103188608/212183555-5694193e-892b-42b0-854a-d169dd854579.png">
 
 Sur cette figure, on remarque que le PIO des entrées peut être relié par le bus Avalon et donc le mode de fonctionnement sera du polling ou par une ligne d’interruption et ainsi être réactif dès le changement d’état de l’entrée. 
 
@@ -26,7 +25,8 @@ Le quatrième commit fait en sorte que l’appuie sur le bouton poussoir permett
 Le cinquième commit ajoute une interruption sur les slide buttons. Il faut ici prendre garde à bien remettre à zéro l’interruption à la fin de celle-ci.
 
 Voici le résultat final :
-https://user-images.githubusercontent.com/103188608/211804671-1e188428-dac3-4b41-9f2c-68aa29e0d3ad.mov
+
+https://user-images.githubusercontent.com/103188608/212183736-e20ea339-4a58-4950-ba00-55f994b798b0.mov
 
 
 <h2>Conclusion</h2>
